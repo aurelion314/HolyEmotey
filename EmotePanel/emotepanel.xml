@@ -1,0 +1,86 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+	
+	<Frame name="emotepanel_main_frame" parent="UIParent" inherits="BasicFrameTemplate"
+		hidden="true" movable="true" enableMouse="true" alpha="0.6">
+		<Size><AbsDimension x="1055" y="578" /></Size>
+		<Anchors><Anchor point="CENTER" /></Anchors>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				areEmotesLoaded = false;
+				print('EmotePanel is loaded.')
+			</OnLoad>
+			<OnDragStart>self:StartMoving();</OnDragStart>
+ 			<OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+		</Scripts>
+		<Layers><Layer>
+			<FontString name="$parentTitle" inherits="GameFontNormal" text="EmotePanel" hidden="false">
+				<Anchors>
+					<Anchor point="TOP"><Offset><AbsDimension x="0" y="-5" /></Offset></Anchor>
+				</Anchors>
+			</FontString>
+		</Layer></Layers>
+		<Frames>
+			
+		</Frames>
+	</Frame>
+
+
+	<!-- Minimap button -->
+	<Button name="emotepanel_MinimapButton" parent="Minimap" enableMouse="true"
+		movable="true" hidden="false">
+		<Size><AbsDimension x="33" y="33" /></Size>
+		<Anchors><Anchor point="LEFT"><Offset><AbsDimension x="-19" y="40"></AbsDimension></Offset></Anchor></Anchors>
+		<Frames>
+			<Frame name="emotepanel_MinimapButton_DraggingFrame" hidden="true">
+				<Scripts>
+					<OnUpdate>
+						 MyMod_MinimapButton_DraggingFrame_OnUpdate() 
+					</OnUpdate>
+				</Scripts> 
+			</Frame>
+		</Frames>
+		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForClicks("LeftButtonUp","RightButtonUp")
+				self:RegisterForDrag("LeftButton","RightButton")
+			</OnLoad>
+			<OnDragStart>
+				self:LockHighlight()
+			</OnDragStart>
+			<OnDragStop>
+				self:UnlockHighlight()
+			</OnDragStop>
+			<OnClick>
+				showEmotePanel();
+			</OnClick>
+		</Scripts>
+		<Layers>
+			<Layer level="BACKGROUND">
+				<Texture name="emotepanel_MinimapButton_Icon" file="Interface\Icons\achievement_character_nightelf_female">
+					<Size>
+						<AbsDimension x="21" y="21"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="7" y="-6"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+			</Layer>
+			<Layer level="OVERLAY">
+				<Texture file="Interface\Minimap\MiniMap-TrackingBorder">
+					<Size>
+						<AbsDimension x="56" y="56"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+	</Button>
+ </Ui>
