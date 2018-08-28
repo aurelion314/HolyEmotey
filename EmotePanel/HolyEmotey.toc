@@ -1,8 +1,8 @@
-## Interface: 70350
-## Title: EmotePanel
-## Author: robben1234, lazypuma
-## Version: 0.2
-## SavedVariables: EmotePanelDB
+## Interface: 301796
+## Title: HolyEmotey
+## Author: lazypuma/aurelion314
+## Version: 0.1
+## SavedVariables: HolyEmoteyDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
 
@@ -21,5 +21,5 @@ libs\AceGUI-3.0\AceGUI-3.0.xml
 libs\AceConfig-3.0\AceConfig-3.0.xml
 #@end-no-lib-strip@
 
-emotepanel.lua
-emotepanel.xml
+HolyEmotey.lua
+HolyEmotey.xml
