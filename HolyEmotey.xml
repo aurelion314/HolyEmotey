@@ -27,19 +27,10 @@
 
 
 	<!-- Minimap button -->
-	<Button name="holyemotey_MinimapButton" parent="Minimap" enableMouse="true"
+	<Button name="HolyEmotey_MinimapButton" parent="Minimap" enableMouse="true"
 		movable="true" hidden="false">
 		<Size><AbsDimension x="33" y="33" /></Size>
 		<Anchors><Anchor point="LEFT"><Offset><AbsDimension x="-19" y="40"></AbsDimension></Offset></Anchor></Anchors>
-		<Frames>
-			<Frame name="holyemotey_MinimapButton_DraggingFrame" hidden="true">
-				<Scripts>
-					<OnUpdate>
-						 MyMod_MinimapButton_DraggingFrame_OnUpdate() 
-					</OnUpdate>
-				</Scripts> 
-			</Frame>
-		</Frames>
 		<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
 		<Scripts>
 			<OnLoad>
@@ -48,17 +39,23 @@
 			</OnLoad>
 			<OnDragStart>
 				self:LockHighlight()
+				self:StartMoving()
 			</OnDragStart>
 			<OnDragStop>
 				self:UnlockHighlight()
+				self:StopMovingOrSizing()
 			</OnDragStop>
 			<OnClick>
-				showEmotePanel();
+				if (button == "RightButton") then
+					showSettings(); -- Replace this with your function to open settings
+				else
+					showEmotePanel();
+				end
 			</OnClick>
 		</Scripts>
 		<Layers>
 			<Layer level="BACKGROUND">
-				<Texture name="holyemotey_MinimapButton_Icon" file="Interface\Icons\Achievement_character_draenei_female">
+				<Texture name="HolyEmotey_MinimapButton_Icon" file="Interface\Icons\Achievement_character_draenei_female">
 					<Size>
 						<AbsDimension x="21" y="21"/>
 					</Size>

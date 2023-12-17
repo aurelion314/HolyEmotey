@@ -1,7 +1,7 @@
-## Interface: 301796
+## Interface: 100200
 ## Title: HolyEmotey
-## Author: lazypuma/aurelion314
-## Version: 0.1
+## Author: lazypuma/cubelicious
+## Version: 1.1
 ## SavedVariables: HolyEmoteyDB
 ## OptionalDeps: Ace3
 ## X-Embeds: Ace3
@@ -21,5 +21,6 @@ libs\AceGUI-3.0\AceGUI-3.0.xml
 libs\AceConfig-3.0\AceConfig-3.0.xml
 #@end-no-lib-strip@
 
-HolyEmotey.lua
+emoteList.lua
 HolyEmotey.xml
+HolyEmotey.lua
