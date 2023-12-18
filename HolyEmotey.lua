@@ -60,6 +60,11 @@ function doEmote(button)
 end
 
 function showEmotePanel()
+	if holyemotey_main_frame and holyemotey_main_frame:IsShown() then
+		holyemotey_main_frame:Hide()
+		return
+	end
+	
     if areEmotesLoaded then
         local oldButtons = { holyemotey_main_frame:GetChildren() }
 
